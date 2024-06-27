@@ -1,6 +1,6 @@
 package org.example.lesson_1
 
-fun main(){
+fun main() {
     val numberOfOrders = 75
     val thanksShopper = "Спасибо, за выбор нашего магазина!"
     println(numberOfOrders)
@@ -9,8 +9,5 @@ fun main(){
     //println(numberOfEmployees)
     numberOfEmployees = 1999
     println(numberOfEmployees)
-
-
-
 
 }
