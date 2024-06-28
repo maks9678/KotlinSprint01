@@ -6,7 +6,9 @@ fun main() {
     val student3 = 3
     val student4 = 5
 
-    var gpa = (student1 + student2 + student3 + student4) / 4f
+    var totalStudent = 4
+
+    var gpa = (student1 + student2 + student3 + student4).toFloat() / totalStudent
 
     print(gpa)
 }
