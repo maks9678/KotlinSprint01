@@ -7,13 +7,13 @@ fun main() {
     val numberOfInterns = 30
     val salaryOfInterns = 20000
 
-    var totalSalaryOfEmployees = numberOfEmployees * salaryOfEmployees
-    var totalSalaryOfInterns = numberOfInterns * salaryOfInterns
+    val totalSalaryOfEmployees = numberOfEmployees * salaryOfEmployees
+    val totalSalaryOfInterns = numberOfInterns * salaryOfInterns
 
-    var totalSalary = totalSalaryOfEmployees + totalSalaryOfInterns
+    val totalSalary = totalSalaryOfEmployees + totalSalaryOfInterns
 
-    var numberEmployeesAndInterns = numberOfEmployees + numberOfInterns
+    val numberEmployeesAndInterns = numberOfEmployees + numberOfInterns
 
-    var averageSalary = totalSalary / numberEmployeesAndInterns
+    val averageSalary = totalSalary / numberEmployeesAndInterns
 
 }
