@@ -9,7 +9,7 @@ fun main() {
     val minuts = sec / timeConverter % 60
     val secRemains = sec % timeConverter % timeConverter
 
-    println("$horus:$minuts:$secRemains")
+    println("${"%02d".format(horus)}:${"%02d".format(minuts)}:${"%02d".format(secRemains)}")
 
 
 }
