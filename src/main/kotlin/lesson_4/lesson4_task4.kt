@@ -4,8 +4,14 @@ fun main() {
 
     val trainingDay = 5
 
-    val trainingDeterminant = 5 % 2 == 1
+    val trainingDeterminant = 5 % 2 == 0
 
-    println("Упражнения для рук: $trainingDeterminant\nУпражнения для ног: ${!trainingDeterminant}\nУпражнения для спины: ${!trainingDeterminant}\nУпражнения для пресса: $trainingDeterminant")
+    println(
+        """
+            Упражнения для рук: ${!trainingDeterminant} 
+            Упражнения для ног: ${trainingDeterminant}
+            Упражнения для спины: ${trainingDeterminant}
+            Упражнения для пресса: ${!trainingDeterminant}""".trimIndent()
+    )
 
 }
