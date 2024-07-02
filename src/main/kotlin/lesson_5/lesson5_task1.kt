@@ -2,11 +2,12 @@ package org.example.lesson_5
 
 fun main() {
 
-    val example = "Сколько будет 2+4?"
-    val answer = readLine()!!.toInt()
-    val rightAnswer = 6
+    val number1 = 4
+    val number2 = 2
+    println("Сколько будет $number1+$number2?")
+    val answer = readln().toInt()
 
-    if (answer == rightAnswer) println("Добро пожаловать!")
+    if (answer == (number1+number2)) println("Добро пожаловать!")
     else println("Доступ запрещен.")
 
 }
