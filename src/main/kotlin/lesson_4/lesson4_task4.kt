@@ -8,9 +8,9 @@ fun main() {
 
     println(
         """
-            Упражнения для рук: ${!trainingDeterminant} 
-            Упражнения для ног: ${trainingDeterminant}
-            Упражнения для спины: ${trainingDeterminant}
+            Упражнения для рук:    ${!trainingDeterminant} 
+            Упражнения для ног:    ${trainingDeterminant}
+            Упражнения для спины:  ${trainingDeterminant}
             Упражнения для пресса: ${!trainingDeterminant}""".trimIndent()
     )
 
