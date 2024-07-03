@@ -1,28 +1,37 @@
 package org.example.lesson_4
 
+const val IS_DAMAGED_SHIP = false
+const val MIN_NUMBER_OF_CREW = 55
+const val MAX_NUMBER_OF_CREW = 70
+const val BOXES_OF_PROVISIONS = 50
+const val IS_FAVORABLE_WEATHER = false
+
+const val IS_DAMAGED_SHIP_OTHER = true
+const val NUMBER_OF_CREW_OTHER = 70
+const val BOXES_OF_PROVISIONS_OTHER = 50
+const val IS_FAVORABLE_WEATHER_OTHER = true
+
 fun main() {
 
-    val damage = false
-    val numberOfCrew = 55..70
-    val provisions = 50
-    val weather = false
-
-    val alternativeDamage = true
-    val alternativeNumberOfCrew = 70
-    val alternativeProvisions = 50
-    val alternativeWeather = true
-
     println("Наличие повреждений корпуса")
-    val nowDamage = readLine()!!.toBoolean()
+    val isDamagedShipNow = readln().toBoolean()
     println("Текущий состав экипажа")
-    val nowNumberOfCrew = readLine()!!.toInt()
+    val numberOfCrewNow = readln().toInt()
     println("Количество ящиков с провизией на борту")
-    val nowProvisions = readLine()!!.toInt()
+    val boxesOfProvisionsNow = readln().toInt()
     println("Благоприятность метеоусловий")
-    val nowWeather = readLine()!!.toBoolean()
+    val isFavorableWeatherNow = readln().toBoolean()
 
-    val conclusion = (((nowDamage == damage) || (!nowDamage == damage)) && (nowNumberOfCrew in numberOfCrew) && (nowProvisions > provisions) && (nowWeather == weather)) ||
-            ((nowDamage == alternativeDamage) && (nowNumberOfCrew == nowNumberOfCrew) && (nowProvisions >= alternativeProvisions) && (nowWeather == alternativeWeather))
+    val isTheShipCanSail = (((isDamagedShipNow == IS_DAMAGED_SHIP) ||
+            (!isDamagedShipNow == IS_DAMAGED_SHIP)) &&
+            ((numberOfCrewNow >= MIN_NUMBER_OF_CREW) &&
+                    (numberOfCrewNow <= MAX_NUMBER_OF_CREW)) &&
+            (boxesOfProvisionsNow > BOXES_OF_PROVISIONS) &&
+            (isFavorableWeatherNow == IS_FAVORABLE_WEATHER)) ||
+            ((isDamagedShipNow == IS_DAMAGED_SHIP_OTHER) &&
+                    (numberOfCrewNow == NUMBER_OF_CREW_OTHER) &&
+                    (boxesOfProvisionsNow >= BOXES_OF_PROVISIONS_OTHER) &&
+                    (isFavorableWeatherNow == IS_FAVORABLE_WEATHER_OTHER))
 
-    println(conclusion)
+    println("Корабль может отправлятся : $isTheShipCanSail")
 }
