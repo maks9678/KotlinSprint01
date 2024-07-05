@@ -12,7 +12,7 @@ fun main() {
     }
     print("Список ингридиентов:")
     for (i in arrayIngredients) {
-        if (i == arrayIngredients[numberIngredients-1]) print(" $i")
+        if (i == arrayIngredients[numberIngredients - 1]) print(" $i")
         else print(" $i,")
     }
 }
