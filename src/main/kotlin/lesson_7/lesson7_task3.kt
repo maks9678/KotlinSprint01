@@ -8,7 +8,7 @@ fun main() {
     val userNumber = readln().toInt()
     var numberOfProgression = FIRST_NUMBER
     println(numberOfProgression)
-    for (i in FIRST_NUMBER..(userNumber / NUMERICAL_CONSTANT) - 1) {
+    for (i in FIRST_NUMBER..(userNumber - 2) step 2) {
         numberOfProgression += NUMERICAL_CONSTANT
         println(numberOfProgression)
     }
