@@ -4,11 +4,7 @@ fun main() {
 
     println("Введите сколько секнд засечь :")
     val markTheSeconds = readln().toInt()
-    var stopwatch = 0
-
-    while (markTheSeconds != stopwatch) {
-        stopwatch++
-        Thread.sleep(1000)
-    }
+    val stopwatch = 1000L * markTheSeconds
+    Thread.sleep(stopwatch)
     println("Прошло $markTheSeconds секунд")
 }
