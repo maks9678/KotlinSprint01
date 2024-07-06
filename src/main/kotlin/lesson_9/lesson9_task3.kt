@@ -5,10 +5,8 @@ fun main() {
     val listOfIngredientsForOneDish = mutableListOf(2, 50, 15)
     println("Сколько будет порций?")
     val numberOfDishes = readln().toInt()
+    listOfIngredientsForOneDish.map { it * numberOfDishes }
 
-    for (i in 0..listOfIngredientsForOneDish.size - 1) {
-        listOfIngredientsForOneDish[i] *= numberOfDishes
-    }
     println(
         "На $numberOfDishes порций вам понадобится: " +
                 "Яиц – ${listOfIngredientsForOneDish[0]}, " +
