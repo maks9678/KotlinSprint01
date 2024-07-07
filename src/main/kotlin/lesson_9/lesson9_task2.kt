@@ -1,5 +1,7 @@
 package org.example.lesson_9
 
+const val YES = "да"
+
 fun main() {
     val listIngredientsPizza = mutableListOf("тесто", "салями", "сыр")
     println("В рецепте есть следующие ингредиенты:")
@@ -8,12 +10,13 @@ fun main() {
     }
     println("Желаете добавить еще?")
     val shouldIAddAnIngredient = readln()
-    if (shouldIAddAnIngredient == "да") {
+    if (shouldIAddAnIngredient == YES) {
         println("Какой ингредиент вы хотите добавить?")
         listIngredientsPizza.add(readln())
         println("Теперь в рецепте есть следующие ингредиенты:")
         listIngredientsPizza.forEach { ingredient: String ->
             println(ingredient)
         }
-    } else return
+    }
+    return
 }
