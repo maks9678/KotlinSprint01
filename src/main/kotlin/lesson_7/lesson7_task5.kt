@@ -1,20 +1,27 @@
 package org.example.lesson_7
 
-import kotlin.random.Random
-
 fun main() {
-    val charRangeForPassword = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+    val charUppercaseRangeForPassword = ('A'..'Z')
+    val charLowercaseRangeForPassword = ('a'..'z')
+    val charNumberRangeForPassword = ('0'..'9')
+    val charRangeForPassword: List<Char> =
+        charNumberRangeForPassword + charLowercaseRangeForPassword +
+                charUppercaseRangeForPassword
     println("Введите размер пароля: ")
     val passwordLength = readln().toInt()
 
     if (passwordLength >= 6) {
-        var password = ""
+        val password = mutableListOf<Char>()
+        password.add(charUppercaseRangeForPassword.random())
+        password.add(charLowercaseRangeForPassword.random())
+        password.add(charNumberRangeForPassword.random())
 
-        for (i in 1..passwordLength) {
-            val randomNumber = Random.nextInt(0, charRangeForPassword.size)
-            password += charRangeForPassword[randomNumber]
+        for (i in 4..passwordLength) {
+            password += charRangeForPassword.random()
         }
-        println("Сгенерированный пароль: $password")
+        password.shuffle()
+        println("Сгенерированный пароль:")
+        password.forEach { print(it) }
     } else {
         println("Пароль должен быть длиной не менее 6 ")
     }
