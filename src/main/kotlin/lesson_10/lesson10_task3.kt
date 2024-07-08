@@ -10,15 +10,14 @@ fun main() {
 
 fun passwordGeneration(lengthPassword: Int): String {
     val numericValues = 0..9
-    val specialCharacters = "!\"#$%&'()*+,-./ "
+    val specialCharacters = 32..47
     var password = ""
 
     for (i in 1..lengthPassword) {
         if (i % 2 != 0) {
             password += (numericValues).random()
         } else {
-            val sumbolNumber = (1..specialCharacters.length).random()
-            password += specialCharacters[sumbolNumber]
+            password += (specialCharacters).random().toByteArray()
         }
     }
     return password
