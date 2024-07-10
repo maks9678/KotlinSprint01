@@ -17,7 +17,7 @@ fun passwordGeneration(lengthPassword: Int): String {
         if (i % 2 != 0) {
             password += (numericValues).random()
         } else {
-            password += (specialCharacters).random().toByteArray()
+            password += (specialCharacters).random().toChar()
         }
     }
     return password
