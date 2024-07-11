@@ -9,14 +9,11 @@ fun main() {
         println("Введите $i ингридиент:")
         listIngredients.add(readln())
     }
-    listIngredients.forEach {
-        if (it.isEmpty() != it.isNotEmpty()) {
-            listIngredients.remove(it)
-        }
-    }
     listIngredients.sort()
-    listIngredients[1].uppercase()
+    listIngredients.distinct()
+
     listIngredients.forEach {
-        print("$it, ")
+        if (listIngredients[listIngredients.lastIndex] == it) print(it)
+        else print("$it, ")
     }
 }
