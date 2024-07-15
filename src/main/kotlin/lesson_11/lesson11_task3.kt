@@ -1,12 +1,25 @@
 package org.example.lesson_11
 
 class Rooms(
-    val cover:String,
-    val nameCover:String,
-    val listOfParticipants:MutableList
+    val cover: String,
+    val nameCover: String,
+    val listOfParticipants: MutableList,
+) {
+    fun addParticipant() {
+        listOfParticipants.add(readln)
+    }
+
+    fun statusUpdates() {
+        userName
+        status
+    }
+}
+
+class Participant(
+    val userName:String
+    val userAvatar:String
+    val status: List = listOf("разговаривает", "микрофон выключен", "пользователь заглушен"),
 )
-Задача на проектирование сущностей для упрощенной версии приложения социальной сети,
-в которой общаются только голосом. Требуется описать сущности и имитировать действия методами.
 
 Функционал одного из модулей будет такой. Есть лента, в которой отображаются
 “комнаты” для общения по интересам. В карточке “комнаты” отображается:
