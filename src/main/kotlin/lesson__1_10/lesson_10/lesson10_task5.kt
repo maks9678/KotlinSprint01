@@ -2,7 +2,8 @@ package org.example.lesson__1_10.lesson_10
 
 const val LOGIN = "semin2009"
 const val PASSWORD = "rediska2"
-val BASKET = "12,23,1234,23"
+const val BASKET = "12,23,1234,23"
+
 fun main() {
     val userAccessToken = authorization()
     if (userAccessToken == null) {
