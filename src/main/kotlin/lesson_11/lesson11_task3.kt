@@ -3,7 +3,10 @@ package org.example.lesson_11
 fun main() {
     val participant1 = Participant("alfred", "ссылка на аватар", "разговаривает")
     val participant2 = Participant("foma", "ссылка на аватар", "разговаривает")
-    val room1 = Rooms("ссылка на обложку", "artists","$participant2" )
+    val room1 = Rooms("ссылка на обложку", "artists", "participant2")
+    room1.addParticipant(participant1)
+    room1.addParticipant(participant2)
+    room1.statusUpdates("foma", "mut")
 }
 
 class Rooms(
@@ -11,34 +14,19 @@ class Rooms(
     val nameCover: String,
     val listOfParticipants: String,
 ) {
-    fun addParticipant() {
-        listOfParticipants.add(participant1)
+    val participantsRooms: MutableList<Participant> = mutableListOf()
+
+    fun addParticipant(participant: Participant) {
+        participantsRooms.add(participant)
     }
 
-    fun statusUpdates() {
-
+    fun statusUpdates(userName: String, newStatus: String) {
+        participantsRooms.find { it.userName == userName }?.status = newStatus
     }
 }
 
 class Participant(
     val userName: String,
     val userAvatar: String,
-    val status: String,
-)
-
-//Функционал одного из модулей будет такой. Есть лента, в которой отображаются
-//“комнаты” для общения по интересам. В карточке “комнаты” отображается:
-//
-//- обложка;
-//- название;
-//- список участников — отображаются в виде аватарок.
-//При долгом нажатии на аватар подсветится его никнейм.
-//Рядом с аватаркой отображается текстовый бейдж с одним из возможных статусов
-//говорящего: “разговаривает”, “микрофон выключен”, “пользователь заглушен”.
-//
-//Класс должен содержать методы:
-//
-//– добавления участника (принимает объект участника и сохраняет в свойство комнаты);
-//– обновления статуса (принимает имя пользователя и новый статус).
-//
-//После проектирования создай объект комнаты с произвольными данными.
+    var status: String,
+) {}
