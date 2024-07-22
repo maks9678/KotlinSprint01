@@ -1,4 +1,4 @@
-package org.example.lesson_9
+package org.example.lesson__1_10.lesson_9
 
 const val NUMBER_OF_INGREDIENTS = 5
 

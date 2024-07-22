@@ -1,4 +1,4 @@
-package org.example.lesson_10
+package org.example.lesson__1_10.lesson_10
 
 const val MIN_RANDOM_NUMBER = 1
 const val MAX_RANDOM_NUMBER = 6
