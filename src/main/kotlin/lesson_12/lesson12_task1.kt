@@ -9,8 +9,6 @@ fun main() {
     dailyWeatherData2.daytimeTemperature = 30
     dailyWeatherData2.nightTemperature = 5
     dailyWeatherData2.isPrecipitation = false
-
-    println(dailyWeatherData1)
 }
 
 class DailyWeatherData(
