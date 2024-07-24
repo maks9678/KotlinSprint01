@@ -6,6 +6,7 @@ fun main() {
 class Forum(
 
 ) {
+    val forumPosts: MutableList<String> = mutableListOf()
     fun printThread() {
 
     }
@@ -19,11 +20,11 @@ class ForumMember(
 
 }
 
-class ForumPosts(
+class ForumMessage(
     val authorId: Int,
     val message: String,
 ) {
-    fun createNewMessage(userId:Int) {}
+    fun createNewMessage(userId: Int) {}
 }
 //Реализовать класс работы форума (Forum).
 //Для реализации создай дополнительные классы для сущностей “Член форума”
