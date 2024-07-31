@@ -4,8 +4,8 @@ const val KELVIN_TO_CELSIUS = 273
 fun main() {
     val dailyWeatherData1 = DailyWeatherDataV3(276, 270, true)
     val dailyWeatherData2 = DailyWeatherDataV3(285, 280, false)
-    println(dailyWeatherData1.weatherPrintout())
-    println(dailyWeatherData2.weatherPrintout())
+    dailyWeatherData1.weatherPrintout()
+    dailyWeatherData2.weatherPrintout()
 }
 
 class DailyWeatherDataV3(
