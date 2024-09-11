@@ -2,29 +2,25 @@ package org.example.lesson_11
 
 fun main() {
     val forum1 = Forum()
-    val user1 = ForumMember(1, "alex")
-    val user2 = ForumMember(2, "oleg")
-    forum1.forumPosts.add(user1)
-    forum1.forumPosts.add(user2)
+    val user1 = ForumMember(1,"alex")
+    val user2 = ForumMember(2,"oleg")
     forum1.printThread()
 }
 
 class Forum(
 ) {
-    val forumPosts: MutableList<ForumMember> = mutableListOf()
+    val forumPosts: MutableList<String> = mutableListOf()
     fun printThread() {
+
     }
 }
 
 class ForumMember(
-    _userId: Int,
-    _userName: String,
+    val userId: Int,
+    val userName: String,
 ) {
-    val userId = _userId
-    val userName = _userName
-    fun createNewUser(userName: String) {
+    fun createNewUser(userName: String) {}
 
-    }
 }
 
 class ForumMessage(
