@@ -1,10 +1,13 @@
 package org.example.lesson_11
 
 fun main() {
+    val forum1 = Forum()
+    val user1 = ForumMember(1,"alex")
+    val user2 = ForumMember(2,"oleg")
+    forum1.printThread()
 }
 
 class Forum(
-
 ) {
     val forumPosts: MutableList<String> = mutableListOf()
     fun printThread() {
