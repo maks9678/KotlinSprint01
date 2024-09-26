@@ -1,7 +1,7 @@
 package org.example.lesson__1_10.lesson_10
 
-const val MIN_RANDOM_NUMBER = 1
-const val MAX_RANDOM_NUMBER = 6
+const val MIN_RANDOM_NUMBER_1 = 1
+const val MAX_RANDOM_NUMBER_1 = 6
 
 fun main() {
     var playerWins = 0
@@ -34,7 +34,7 @@ fun gameDice(playerWins: Int): Int {
 }
 
 fun rollOfTheDice(): Int {
-    return (MIN_RANDOM_NUMBER..MAX_RANDOM_NUMBER).random()
+    return (MIN_RANDOM_NUMBER_1..MAX_RANDOM_NUMBER_1).random()
 }
 
 fun onceAgain(): String {
