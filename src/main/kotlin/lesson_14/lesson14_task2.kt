@@ -49,7 +49,7 @@ class CargoShip2(
     speed: Int,
     loadCapacity: Int,
     numberOfPassengers: Int,
-    val workload: Int,
+    var workload: Int,
 ) : ShipLiner2(name, speed, loadCapacity, numberOfPassengers) {
     fun loadingOfHolds() {
         println("погрузка трюмов")
