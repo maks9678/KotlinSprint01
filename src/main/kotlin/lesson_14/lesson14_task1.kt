@@ -1,20 +1,38 @@
 package org.example.lesson_14
 
-open class ShipTypeLiner(
+fun main() {
+    val shipliner1 = ShipLiner(
+        "круизный лайнер 1",
+        20, 100000, 24000
+    )
+    val cargoShip1 = CargoShip(
+        "Сухогруз 1", 15, 400000,
+        300, 200000
+    )
+    cargoShip1.loadingOfHolds()
+
+    val icebreaker1 = Icebreaker(
+        "Ледокол 1", 12,
+        200000, 200
+    )
+    icebreaker1.аctivateIcebreaker()
+    icebreaker1.deаctivateIcebreaker()
+}
+
+open class ShipLiner(
     val name: String,
     val speed: Int,
     val loadCapacity: Int,
     val numberOfPassengers: Int,
-) {
-}
+)
 
-class Cargo(
+class CargoShip(
     name: String,
     speed: Int,
     loadCapacity: Int,
     numberOfPassengers: Int,
-    val volumeOfHolds: Int,
-) : ShipTypeLiner(name, speed, loadCapacity, numberOfPassengers) {
+    val workload: Int,
+) : ShipLiner(name, speed, loadCapacity, numberOfPassengers) {
     fun loadingOfHolds() {
         println("погрузка трюмов")
     }
@@ -26,7 +44,7 @@ class Icebreaker(
     loadCapacity: Int,
     numberOfPassengers: Int,
     var isIcebreakerMode: Boolean = false,
-) : ShipTypeLiner(name, speed, loadCapacity, numberOfPassengers) {
+) : ShipLiner(name, speed, loadCapacity, numberOfPassengers) {
     fun аctivateIcebreaker() {
         isIcebreakerMode = true
         println("активирован режим ледокола")
@@ -37,11 +55,3 @@ class Icebreaker(
         println("деактивирован режим ледокола")
     }
 }
-//Задача 1 к Уроку 14
-//
-//В компьютерной игре есть три типа кораблей: лайнер, грузовой и ледокол. Все корабли построены на основе лайнера, но у каждого свой функционал и дополнительные свойства.
-//
-//У грузовых скорость меньше, а грузоподъемность больше. У ледоколов ниже и скорость, и вместительность, но они могут колоть лёд. Лайнер может вмещать наибольшее количество пассажиров.
-//
-//- спроектируй иерархию классов со значениями по умолчанию для каждого типа корабля;
-//- создай по 1 экземпляру каждого типа корабля.
