@@ -5,12 +5,12 @@ fun main() {
     phoneDirectory.printDirectory()
 }
 
-class PhoneDirectory2(val name: String, val phoneNumber: Long, val company: String? = null ?: "не указано") {
+class PhoneDirectory2(val name: String, val phoneNumber: Long, val company: String? = null) {
     fun printDirectory() {
         println(
             "- Имя: $name\n" +
                     "- Номер: $phoneNumber\n" +
-                    "- Компания: $company"
+                    "- Компания: ${company ?: "не указано"}"
         )
     }
 }
