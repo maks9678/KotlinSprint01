@@ -16,7 +16,6 @@ fun main() {
         )
     }
 
-    val monthlyWeatherDataDayTime = monthlyWeatherData.subList(0, 30)
     val averageDaytimeTemperatures = monthlyWeatherData.sumOf { it.daytimeTemperature } / monthlyWeatherData.size
     val averageNightTemperatures = monthlyWeatherData.sumOf { it.nightTemperature } / monthlyWeatherData.size
     val daysWithPrecipitation = monthlyWeatherData.count { it.isPrecipitation }
