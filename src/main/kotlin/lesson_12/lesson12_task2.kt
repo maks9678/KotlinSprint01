@@ -8,9 +8,9 @@ fun main() {
 }
 
 class DailyWeatherDataV2(
-    var daytimeTemperature: Int,
-    var nightTemperature: Int,
-    var isPrecipitation: Boolean,
+    val daytimeTemperature: Int,
+    val nightTemperature: Int,
+    val isPrecipitation: Boolean,
 ) {
 
     fun weatherPrintout() {
