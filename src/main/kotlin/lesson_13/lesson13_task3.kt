@@ -8,7 +8,10 @@ fun main() {
         PhoneDirectory3("Милана", 879782211224, "Яндекс"),
         PhoneDirectory3("Гарик", 89782211225, "Reddit")
     )
-    phoneDirectory.forEach { i -> i.printDirectory() }
+    val contactsWithCompanies = phoneDirectory.mapNotNull {
+        if (it.company != null) it else null
+    }
+    contactsWithCompanies.forEach { contact -> contact.printDirectory() }
 }
 
 class PhoneDirectory3(
