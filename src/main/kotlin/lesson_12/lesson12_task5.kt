@@ -2,34 +2,24 @@ package org.example.lesson_12
 
 import kotlin.random.Random
 
-
 const val KELVIN_TO_CELSIUS = 273
+
 fun main() {
     val monthlyWeatherData = mutableListOf<DailyWeatherDataV5>()
-
     for (i in 1..30) {
-        val daytimeTemperatureRandom: Int = (-15..36).random()
-        val nightTemperatureRandom: Int = (-15..20).random()
-        val isPrecipitationRandom = Random.nextBoolean()
         monthlyWeatherData.add(
             DailyWeatherDataV5(
-                daytimeTemperatureRandom,
-                nightTemperatureRandom,
-                isPrecipitationRandom,
+                (-15..36).random(),
+                (-15..20).random(),
+                Random.nextBoolean(),
             )
         )
     }
-    var monthlyWeatherDataDayTime = monthlyWeatherData.subList(0, 30)
-    var monthlyWeatherDataNight = monthlyWeatherData.subList(31, 60)
-    var monthlyWeatherDataPrecipitation = monthlyWeatherData.subList(61, 90)
-    val averageDaytimeTemperatures: Double = monthlyWeatherDataDayTime.average()
-    val averageNightTemperatures: Double = monthlyWeatherDataNight.average()
-    var daysWithPrecipitation: Int = 0
-    for (i in monthlyWeatherDataPrecipitation) {
-        if (i.toBoolean() == true) {
-            daysWithPrecipitation++
-        }
-    }
+
+    val monthlyWeatherDataDayTime = monthlyWeatherData.subList(0, 30)
+    val averageDaytimeTemperatures = monthlyWeatherData.sumOf { it.daytimeTemperature } / monthlyWeatherData.size
+    val averageNightTemperatures = monthlyWeatherData.sumOf { it.nightTemperature } / monthlyWeatherData.size
+    val daysWithPrecipitation = monthlyWeatherData.count { it.isPrecipitation }
 
     println("Средняя дневная температура $averageDaytimeTemperatures")
     println("Средняя ночная температура $averageNightTemperatures")
@@ -44,8 +34,13 @@ class DailyWeatherDataV5(
     var daytimeTemperature = _daytimeTemperature - KELVIN_TO_CELSIUS
     var nightTemperature = _nightTemperature - KELVIN_TO_CELSIUS
     var isPrecipitation = _isPrecipitation
+
     fun weatherPrintout() {
-        println("$daytimeTemperature\n$nightTemperature\n$isPrecipitation")
+        println(
+            "Дневная температура: $daytimeTemperature\n" +
+                    "Ночная температура: $nightTemperature\n" +
+                    "Осадки: $isPrecipitation"
+        )
     }
 
     init {
