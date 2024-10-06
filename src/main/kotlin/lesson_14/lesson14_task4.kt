@@ -10,11 +10,13 @@ fun main() {
 
     planet1.printInfo()
 }
+
 abstract class CelestialBodies(
     open val name: String,
     open val isSuitableForDisembarkation: Boolean,
     open val isSuitableAtmosphere: Boolean,
 )
+
 class Planet(
     override val name: String,
     override var isSuitableForDisembarkation: Boolean = false,
@@ -26,12 +28,14 @@ class Planet(
     fun addSputnik(it: Sputnik) {
         listSputnik.add(it)
     }
+
     fun printInfo() {
         println("Планета: $name")
         println("Спутники:")
         listSputnik.forEach { println(it.name) }
     }
 }
+
 class Sputnik(
     override val name: String,
     override val isSuitableForDisembarkation: Boolean = false,
