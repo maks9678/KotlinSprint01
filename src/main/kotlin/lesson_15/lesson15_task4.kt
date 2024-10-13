@@ -15,15 +15,13 @@ interface Search {
     }
 }
 
-abstract class ToolsAndAccessories(
+abstract class Product(
     val name: String,
     val quantityInStock: Int,
-) {
-    abstract fun infoAvailability()
-}
+)
 
-class Tools(name: String, quantityInStock: Int) : ToolsAndAccessories(name, quantityInStock) {
-    override fun infoAvailability() {
+class Tools(name: String, quantityInStock: Int) : Product(name, quantityInStock) {
+    fun infoAvailability() {
         println("Инструмент: $name, Количество на складе: $quantityInStock")
     }
 
@@ -33,8 +31,8 @@ class Tools(name: String, quantityInStock: Int) : ToolsAndAccessories(name, quan
     }
 }
 
-class Accessories(name: String, quantityInStock: Int) : ToolsAndAccessories(name, quantityInStock), Search {
-    override fun infoAvailability() {
+class Accessories(name: String, quantityInStock: Int) : Product(name, quantityInStock), Search {
+    fun infoAvailability() {
         println("Комплектующее: $name, Количество на складе: $quantityInStock ")
     }
 }
