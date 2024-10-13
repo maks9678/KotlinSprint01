@@ -11,29 +11,27 @@ fun main() {
     dick.swim()
 }
 
-interface FlyingCreatures {
-    fun fly() {
-    }
+interface Flying {
+    fun fly()
 }
 
-interface FloatingCreatures {
-    fun swim() {
-    }
+interface Floating {
+    fun swim()
 }
 
-class Crucian : FloatingCreatures {
+class Crucian : Floating {
     override fun swim() {
         println("карась плавает")
     }
 }
 
-class Gull : FlyingCreatures {
+class Gull : Flying {
     override fun fly() {
         println("чайка летает")
     }
 }
 
-class Duck : FlyingCreatures, FloatingCreatures {
+class Duck : Flying, Floating {
     override fun fly() {
         println("утка летает")
     }
