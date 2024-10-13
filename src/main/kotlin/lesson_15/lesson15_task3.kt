@@ -12,7 +12,7 @@ fun main() {
     admin1.deleteUser("Василий")
 }
 
-abstract class AllUsers(
+abstract class Client(
     val userName: String,
 ) {
     fun readTheForum() {
@@ -24,8 +24,8 @@ abstract class AllUsers(
     }
 }
 
-class User(userName: String) : AllUsers(userName) {}
-class Admin(userName: String) : AllUsers(userName) {
+class User(userName: String) : Client(userName)
+class Admin(userName: String) : Client(userName) {
     fun deleteMessages(messages: String) {
         println("Удалено сообщение: $messages")
     }
