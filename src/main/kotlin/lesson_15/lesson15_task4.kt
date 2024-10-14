@@ -1,10 +1,10 @@
 package org.example.lesson_15
 
 fun main() {
-    val tools1 = Tools("Гитара", 22)
-    tools1.infoAvailability()
+    val tools1 = Tool("Гитара", 22)
+    tools1.printShowInfo()
     val accessories1 = Accessories("Струна", 50)
-    accessories1.infoAvailability()
+    accessories1.printShowInfo()
 
     tools1.findAccessories(accessories1)
 }
@@ -20,8 +20,8 @@ abstract class Product(
     val quantityInStock: Int,
 )
 
-class Tools(name: String, quantityInStock: Int) : Product(name, quantityInStock) {
-    fun infoAvailability() {
+class Tool(name: String, quantityInStock: Int) : Product(name, quantityInStock) {
+    fun printShowInfo() {
         println("Инструмент: $name, Количество на складе: $quantityInStock")
     }
 
@@ -32,7 +32,7 @@ class Tools(name: String, quantityInStock: Int) : Product(name, quantityInStock)
 }
 
 class Accessories(name: String, quantityInStock: Int) : Product(name, quantityInStock), Search {
-    fun infoAvailability() {
+    fun printShowInfo() {
         println("Комплектующее: $name, Количество на складе: $quantityInStock ")
     }
 }
