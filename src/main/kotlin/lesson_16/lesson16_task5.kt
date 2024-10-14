@@ -7,7 +7,7 @@ fun main() {
     player1.takingDamage(30)
     player2.takingDamage(50)
     player1.healing(20)
-    player1.takingDamage(100)
+    player1.takingDamage(110)
     player1.healing(10)
 }
 
