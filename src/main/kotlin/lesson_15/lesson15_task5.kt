@@ -4,69 +4,66 @@ fun main() {
     val lorry1 = Lorry(0, 1, 0, 2)
     val car1 = Car(0, 3)
 
-    car1.loadingPassengers(3)
-    lorry1.loadingPassengers(1)
-    lorry1.loadingCargo(2)
+    car1.loadPassengers(3)
+    lorry1.loadPassengers(1)
+    lorry1.loadCargo(2)
 
-    lorry1.transport()
-    car1.transport()
+    lorry1.transfer()
+    car1.transfer()
 
-    lorry1.unloadingCargo()
-    lorry1.unloadingPassengers()
-    car1.unloadingPassengers()
+    lorry1.unloadCargo()
+    lorry1.unloadPassengers()
+    car1.unloadPassengers()
 
-    car1.transport()
-    car1.loadingPassengers(2)
-    car1.transport()
-    car1.unloadingPassengers()
+    car1.transfer()
+    car1.loadPassengers(2)
+    car1.transfer()
+    car1.unloadPassengers()
 }
 
-interface MovementOfCars {
-    fun transport() {
-
-    }
+interface MovingCar {
+    fun transfer() = println("перемещение")
 }
 
-interface TransportationOfPassengers {
-    fun loadingPassengers(loadPassengers: Int)
+interface TransportPassengers {
+    fun loadPassengers(loadPassengers: Int)
 
-    fun unloadingPassengers()
+    fun unloadPassengers()
 }
 
 interface CargoTransportation {
-    fun loadingCargo(loadCargo: Int)
+    fun loadCargo(loadCargo: Int)
 
-    fun unloadingCargo()
+    fun unloadCargo()
 }
-
 
 class Lorry(
     private var currentNumberOfPeople: Int,
     private val maxPassengers: Int,
     private var currentCargoQuantity: Int,
     private val maxLoadCapacity: Int,
-) : MovementOfCars, TransportationOfPassengers, CargoTransportation {
+) : MovingCar, TransportPassengers, CargoTransportation {
 
-    override fun loadingPassengers(loadPassengers: Int) {
+    override fun loadPassengers(loadPassengers: Int) {
         if ((currentNumberOfPeople + loadPassengers) <= maxPassengers) {
             println("загружено $loadPassengers пассажиров ")
             currentNumberOfPeople += loadPassengers
         } else println("перегрузка пассажиров")
     }
 
-    override fun unloadingPassengers() {
+    override fun unloadPassengers() {
         println("выгрузка $currentNumberOfPeople  пассажиров")
         currentNumberOfPeople = 0
     }
 
-    override fun loadingCargo(loadCargo: Int) {
+    override fun loadCargo(loadCargo: Int) {
         if ((currentCargoQuantity + loadCargo) <= maxLoadCapacity) {
             println("загружено $loadCargo тонн груза ")
             currentCargoQuantity += loadCargo
         } else println("перегрузка тонн груза")
     }
 
-    override fun unloadingCargo() {
+    override fun unloadCargo() {
         println("выгрузка $currentCargoQuantity  тонн груза")
         currentCargoQuantity = 0
     }
@@ -75,16 +72,16 @@ class Lorry(
 class Car(
     private var currentNumberOfPeople: Int,
     private val maxPassengers: Int,
-) : MovementOfCars, TransportationOfPassengers {
+) : MovingCar, TransportPassengers {
 
-    override fun loadingPassengers(loadPassengers: Int) {
+    override fun loadPassengers(loadPassengers: Int) {
         if ((currentNumberOfPeople + loadPassengers) <= maxPassengers) {
             println("загружено $loadPassengers пассажиров ")
             currentNumberOfPeople += loadPassengers
         } else println("перегрузка пассажиров")
     }
 
-    override fun unloadingPassengers() {
+    override fun unloadPassengers() {
         println("выгрузка $currentNumberOfPeople  пассажиров")
         currentNumberOfPeople = 0
     }
