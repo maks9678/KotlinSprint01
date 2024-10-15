@@ -11,12 +11,12 @@ class Circle(
     private val pi: Double = 3.14,
 ) {
     fun perimeter() {
-        val c = 2 * pi * radius
-        println("периметр : $c")
+        val perimeter = 2 * pi * radius
+        println("периметр : $perimeter")
     }
 
     fun area() {
-        val s = pi * radius * radius
-        println("площадь : $s")
+        val area = pi * radius * radius
+        println("площадь : $area")
     }
 }
