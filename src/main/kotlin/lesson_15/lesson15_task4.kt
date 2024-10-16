@@ -2,11 +2,11 @@ package org.example.lesson_15
 
 fun main() {
     val tools1 = Tool("Гитара", 22)
-    tools1.printShowInfo()
+    tools1.printAvailabilityInfo()
     val accessories1 = Accessories("Струна", 50)
     accessories1.printShowInfo()
 
-    tools1.findAccessories(accessories1)
+    tools1.search()
 }
 
 interface Search {
@@ -20,18 +20,13 @@ abstract class Product(
     val quantityInStock: Int,
 )
 
-class Tool(name: String, quantityInStock: Int) : Product(name, quantityInStock) {
-    fun printShowInfo() {
+class Tool(name: String, quantityInStock: Int) : Product(name, quantityInStock),Search {
+    fun printAvailabilityInfo() {
         println("Инструмент: $name, Количество на складе: $quantityInStock")
-    }
-
-    fun findAccessories(accessory: Accessories) {
-        println("Ищем комплектующие для инструмента: ${accessory.name}")
-        accessory.search()
     }
 }
 
-class Accessories(name: String, quantityInStock: Int) : Product(name, quantityInStock), Search {
+class Accessories(name: String, quantityInStock: Int) : Product(name, quantityInStock){
     fun printShowInfo() {
         println("Комплектующее: $name, Количество на складе: $quantityInStock ")
     }
