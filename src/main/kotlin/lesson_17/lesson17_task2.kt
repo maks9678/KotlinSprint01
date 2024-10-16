@@ -15,9 +15,6 @@ class Ship(
     var averageSpeed: Int,
     var portRegistry: String,
 ) {
-    var name: String
-        get() = _name
-        set(value) {
-            println("имя не изменить ")
-        }
+    var name: String = _name
+        set(value) = println("имя не изменить ")
 }
