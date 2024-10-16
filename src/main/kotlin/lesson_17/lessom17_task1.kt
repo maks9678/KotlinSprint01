@@ -1,15 +1,14 @@
 package org.example.lesson_17
 
-class Quiz(private var _question: String, private var _answer: String) {
-    var question:String
-        get() = _question
+class Quiz(
+   _question: String,
+    _answer: String,
+) {
+    var question: String = _question
+        get() = field
+    var answer: String = _answer
+        get() = field
         set(value) {
-            _question = value
-        }
-
-    var answer:String
-        get() = _answer
-        set(value) {
-            _answer = value
+            field = value
         }
 }
