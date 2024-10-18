@@ -6,14 +6,14 @@ fun main() {
 }
 
 class Folder(
-    val _name: String,
+    _name: String,
     val numberFile: Int,
-    var isSecret: Boolean,
+    private var isSecret: Boolean,
 ) {
-    val name: String
+    val name: String = _name
         get() = if (isSecret) {
             "Скрытая папка и количество файлов – 0"
         } else {
-            "Название - $_name, количество файлов – $numberFile"
+            "Название - $field, количество файлов – $numberFile"
         }
 }
