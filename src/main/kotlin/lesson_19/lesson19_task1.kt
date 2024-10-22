@@ -2,23 +2,14 @@ package org.example.lesson_19
 
 fun main() {
     println("доступные рыбы:")
-    for (i in Fish.values()) {
-        println(i)
+    Fish.entries.forEach { fish ->
+        println(fish.nameFish)
     }
 }
 
-enum class Fish {
-    GUPPY,
-    ANGELFISH,
-    GOLDFISH,
-    SIAMESE_FIGHTING_FISH
-}
-
-fun setFish(fish: Fish) {
-    when (fish) {
-        Fish.GUPPY -> println("гуппи")
-        Fish.ANGELFISH -> println("скалярия")
-        Fish.GOLDFISH -> println("золотая рыбка")
-        Fish.SIAMESE_FIGHTING_FISH -> println("петушок")
-    }
+enum class Fish(val nameFish: String) {
+    GUPPY("гуппи"),
+    ANGELFISH("скалярия"),
+    GOLDFISH("золотая рыбка"),
+    SIAMESE_FIGHTING_FISH("петушок")
 }
