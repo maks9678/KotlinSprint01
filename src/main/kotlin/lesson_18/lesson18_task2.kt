@@ -10,14 +10,15 @@ fun main() {
 }
 
 abstract class Dice(
-    val maxNumber: Int,
+    _maxNumber: Int,
 ) {
+    val maxNumber = _maxNumber
     fun throwDice() {
         val gotNumber = (1..maxNumber).random()
         println("Выпало число : $gotNumber")
     }
 }
 
-class Dice4 : Dice(maxNumber = 4)
-class Dice6 : Dice(maxNumber = 6)
-class Dice8 : Dice(maxNumber = 8)
+class Dice4 : Dice(4)
+class Dice6 : Dice(6)
+class Dice8 : Dice(8)
