@@ -2,51 +2,51 @@ package org.example.lesson_19
 
 fun main() {
     val tank1 = Tank()
-    tank1.armament(1)
-    tank1.armament(2)
-    tank1.armament(3)
+    tank1.armament(Cartridges.BLUE)
+    tank1.armament(Cartridges.GREEN)
+    tank1.armament(Cartridges.RED)
 
-    tank1.shot(1)
-    tank1.shot(2)
-    tank1.shot(3)
+    tank1.loadCartridge(Cartridges.BLUE)
+    tank1.shot()
+    tank1.loadCartridge(Cartridges.GREEN)
+    tank1.shot()
+    tank1.loadCartridge(Cartridges.RED)
+    tank1.shot()
+    tank1.shot()
 }
 
-enum class Cartridges(val id: Int, val damage: Int) {
-    BLUE(1, 5),
-    GREEN(2, 10),
-    RED(3, 20);
+enum class Cartridges(val damage: Int) {
+    BLUE(5),
+    GREEN(10),
+    RED(20);
 
     fun dealDamage() {
         println("нанесено $damage урона")
     }
 }
 
-class Tank() {
+class Tank(
+    var loadedCartridge: Cartridges? = null,
+) {
     val ammunition = mutableListOf<Cartridges>()
-    fun armament(_id: Int) {
-        val cartridge = when (_id) {
-            Cartridges.BLUE.id -> Cartridges.BLUE
-            Cartridges.GREEN.id -> Cartridges.GREEN
-            Cartridges.RED.id -> Cartridges.RED
-            else -> null
-        }
-        if (cartridge != null) {
-            ammunition.add(cartridge)
-            println("пополнен ${cartridge.name} боеприпас")
-        } else println("неверный тип боеприпасов")
+    fun armament(missile: Cartridges) {
+        ammunition.add(missile)
+        println("пополнен ${missile.name} боеприпас")
     }
 
-    fun shot(_id: Int) {
-        val cartridge = when (_id) {
-            Cartridges.BLUE.id -> Cartridges.BLUE
-            Cartridges.GREEN.id -> Cartridges.GREEN
-            Cartridges.RED.id -> Cartridges.RED
-            else -> null
-        }
-        if (cartridge?.id != null ) {
-            ammunition.remove(cartridge)
-            cartridge.dealDamage()
-            println("выстрел $cartridge патроном")
-        } else println("нет таких патронов")
+    fun loadCartridge(missile: Cartridges) {
+        if (ammunition.contains(missile)) {
+            loadedCartridge = missile
+            println("Заряжен патрон: ${missile.name}")
+        } else println("Нет таких патронов")
+    }
+
+    fun shot() {
+        if (loadedCartridge != null) {
+            println("выстрел $loadedCartridge патроном")
+            loadedCartridge?.dealDamage()
+            ammunition.remove(loadedCartridge)
+            loadedCartridge = null
+        } else println("не заряжено")
     }
 }
