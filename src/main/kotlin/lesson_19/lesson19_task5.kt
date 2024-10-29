@@ -3,11 +3,13 @@ package org.example.lesson_19
 fun main() {
     val cardIndex = mutableListOf<Human>()
     println("Введите имя и через Enter пол")
-    for (i in 1..7) {
+    val minHuman = 1
+    val maxHuman = 10
+    for (i in minHuman..maxHuman) {
         print("Введите имя :")
         val name = readln()
         print("Введите пол (man или women):")
-        val genderInput = readln()
+        val genderInput = readln().lowercase()
 
         val gender = when (genderInput) {
             Gender.MAN._gender -> Gender.MAN
