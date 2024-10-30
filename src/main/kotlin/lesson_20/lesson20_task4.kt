@@ -2,9 +2,10 @@ package org.example.lesson_20
 
 fun main() {
     val list = listOf("отмена", "окей", "назад")
-    val printList = list.mapIndexed() { index, it ->
-        if (index % 2 == 0) {
-            println("Нажат элемент $it")
+    val lambdaList = list.map { element -> { println("Нажат элемент $element") } }
+    for (i in lambdaList.indices) {
+        if (i % 2 == 1) {
+            lambdaList[i].invoke()
         }
     }
 }
