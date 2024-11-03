@@ -5,11 +5,11 @@ fun main() {
     robot1.say()
     robot1.setModifier { phrase -> invert(phrase) }
     robot1.say()
-}fun invert(phrase: String): String {
-    return phrase.split("").reversed().joinToString { " " }
-
 }
-class Robot() {
+
+fun invert(phrase: String): String = phrase.split("").reversed().joinToString { " " }
+
+class Robot {
     var modifier: (String) -> String = { it }
     val phrases = listOf(
         "Привет, мир!",
@@ -24,7 +24,7 @@ class Robot() {
         println(modifier(phrasesPrint))
     }
 
-    fun setModifier(newMedifier: (String) -> String) {
-        modifier = newMedifier
+    fun setModifier(newModifier: (String) -> String) {
+        modifier = newModifier
     }
 }
