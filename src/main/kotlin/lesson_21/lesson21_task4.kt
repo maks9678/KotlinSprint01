@@ -7,7 +7,7 @@ fun main() {
 }
 
 fun File.writeDownWord(_word: String) {
-    val word = _word.loverСase()
+    val word = _word.lowercase()
     val currentContent = this.readText()
     this.writeText("$word\n $currentContent")
 }
