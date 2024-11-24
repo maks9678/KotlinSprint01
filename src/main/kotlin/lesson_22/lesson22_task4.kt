@@ -1,41 +1,26 @@
 package org.example.lesson_22
 
 data class MainScreenState(
-    var data:String
-        set()={this.copy()
-            isLoading=true  },
-    var isLoading:Boolean=false){
-    fun loadData(){
+    var data: String,
+    var isLoading: Boolean = false,
+) {
+    fun loadData() {
+        var currentState = this.copy("отсутствие данных")
+        println("Текущее состояние: ${currentState.data}, загрузка: ${currentState.isLoading}")
 
-       ("отсутствие данных")
-        ("загрузка данных")
-        ("наличие загруженных данных")
+        currentState = currentState.copy("загрузка данных", true)
+        println("Текущее состояние: ${currentState.data}, загрузка: ${currentState.isLoading}")
+
+        currentState = currentState.copy("наличие загруженных данных", false)
+        println("Текущее состояние: ${currentState.data}, загрузка: ${currentState.isLoading}")
     }
 }
-class ViewModel (val mainScreenState:MainScreenState)
-fun main(){
-    var mainScreenState1 = ViewModel(mainScreenState("отсутствие данных"))
-    var viewModel = MainScreenState.
-}
 
-//В разработке Android приложений часто используется паттерн MVVM (Model-View-ViewModel)
-//для разделения бизнес-логики и пользовательского интерфейса. ViewModel отвечает за управление
-//состоянием приложения и хранит данные, которые необходимы для отображения на экране.
-//
-//Предположим, что у нас есть MainScreenViewModel первого экрана приложения, для инициализации
-//которого подгружаются данные с сервера. ViewModel хранит единственное свойство mainScreenState,
-//которое представляет собой объект внутреннего data class MainScreenState.
-//
-//Состояние экрана включает два свойства: data (загружаемые данные — String) и isLoading (индикатор
-//процесса загрузки, обычно имеет значение по умолчанию false).
-//
-//Создайте data class для хранения состояния. При изменении состояния загрузки необходимо создать новый
-//объект MainScreenState, скопировав текущее состояние и изменив значение поля isLoading.
-//
-//Создайте метод loadData() в классе MainScreenViewModel, который будет имитировать процесс загрузки
-//данных с сервера. Этот метод не должен принимать параметры и должен последовательно изменять состояние
-//в следующем порядке:
-//
-//- отсутствие данных;
-//- загрузка данных;
-//- наличие загруженных данных.
+class MainScreenViewModel(var mainScreenState: MainScreenState) {}
+
+fun main() {
+    val mainScreenState = MainScreenState("отсутствие данных")
+
+    val viewModel = MainScreenViewModel(mainScreenState)
+    viewModel.mainScreenState.loadData()
+}
